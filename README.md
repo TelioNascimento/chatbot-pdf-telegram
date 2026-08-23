@@ -112,3 +112,26 @@ Antes de iniciar, obtenha as seguintes chaves de acesso:
 
 * **Modo de Espera (Cold Start):** No plano gratuito do Render, a aplicação entra em suspensão após 15 minutos sem tráfego. O primeiro acesso após esse período pode levar cerca de 50 segundos para responder enquanto a instância inicializa.
 * **Leitura do PDF:** O arquivo PDF precisa conter texto digital selecionável. PDFs escaneados apenas como imagem requerem OCR prévio para correta extração de conteúdo.
+
+---
+
+## 📌 Exemplos de perguntas
+
+* **Qual nome da equipe?
+* **Onde nasceu o taekwondo?
+
+---
+
+## 📌 Exemplos de respostas
+
+* **Com base no documento, o nome da equipe/academia é **Soares Team** (ou **Soares Team – Taekwondo & Hapkido**).
+* **Com base no documento fornecido, o Taekwondo surgiu (nasceu) na **antiga Coréia, na cidade/província de Surabul, no Reino de Silla** (localizado na região sul da península coreana).
+
+---
+
+## ☁️ Link Publico da Aplicação
+https://chatbot-pdf-telegram.onrender.com/
+
+---
+
+## ☁️ Evidencia do funcionamento da aplicação encontra-se no arquivo evidencia.png
