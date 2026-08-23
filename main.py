@@ -2,13 +2,26 @@ import os
 import io
 import httpx
 from pypdf import PdfReader
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from telegram import Update, Bot
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from google import genai
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Inicializa o bot
+    await tg_app.initialize()
+    if RENDER_EXTERNAL_URL:
+        webhook_url = f"{RENDER_EXTERNAL_URL}/telegram-webhook"
+        bot = Bot(token=TELEGRAM_TOKEN)
+        await bot.set_webhook(url=webhook_url)
+    yield
+    # Finaliza recursos se necessário
+    await tg_app.shutdown()
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
+
 
 # Variáveis de Ambiente
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -33,7 +46,7 @@ def ask_gemini(question: str) -> str:
     context = load_pdf_from_github()
     prompt = f"Baseie-se estritamente no seguinte documento para responder à pergunta:\n\n{context}\n\nPergunta: {question}"
     response = gemini_client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
         contents=prompt
     )
     return response.text
