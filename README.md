@@ -134,4 +134,4 @@ https://chatbot-pdf-telegram.onrender.com/
 
 ---
 
-## ☁️ Evidencia do funcionamento da aplicação encontra-se no arquivo evidencia.png
+## ☁️ Evidencia do funcionamento da aplicação encontra-se no arquivo evidencia.png contido neste compartimento
